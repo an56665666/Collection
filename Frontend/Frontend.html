@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <title>Collection</title>
     <style>
         nav {
@@ -20,6 +23,20 @@
         #frontendDropdown,
         .aFrontend {
             color: orange !important;
+        }
+
+        .card {
+            margin-bottom: 1rem;
+        }
+
+        table.dataTable span.highlight {
+            background-color: rgb(255, 228, 74);
+            border-radius: 0.28571429rem;
+        }
+
+        table.dataTable span.column_highlight {
+            background-color: rgb(255, 228, 74);
+            border-radius: 0.28571429rem;
         }
     </style>
 </head>
@@ -106,29 +123,106 @@
                         Customize Setting
                     </div>
                     <div class="card-body">
-                        <div class="colorArea" style="display: flex; align-items: center; margin-bottom: 5%;">
-                            <div>
-                                <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+                        <div class="row">
+                            <div class="col">
+                                <div class="colorArea" style="display: flex; align-items: center; margin-bottom: 5%;">
+                                    <div>
+                                        <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+                                    </div>
+                                    <div id="red"
+                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #A06254;">
+                                    </div>
+                                    <div id="green"
+                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #43754D;">
+                                    </div>
+                                    <div id="blue"
+                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #004777;">
+                                    </div>
+                                    <div id="black"
+                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #393D3F;">
+                                    </div>
+                                </div>
                             </div>
-                            <div id="red"
-                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #A06254;">
-                            </div>
-                            <div id="green"
-                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #43754D;">
-                            </div>
-                            <div id="blue"
-                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #004777;">
-                            </div>
-                            <div id="black"
-                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #393D3F;">
+                            <div class="col">
+                                <div class="slidecontainer" style="display: flex; align-items: center;">
+                                    <i class="fas fa-sun" style="font-size: large;"></i>
+                                    <input type="range" min="15" max="100" value="100" class="slider" id="myRange"
+                                        style="width: 60%;">
+                                    <div id="demo"></div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="slidecontainer" style="display: flex; align-items: center;">
-                            <i class="fas fa-sun" style="font-size: large;"></i>
-                            <input type="range" min="15" max="100" value="100" class="slider" id="myRange"
-                                style="width: 60%;">
-                            <div id="demo"></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header"
+                        style="display: flex; justify-content: space-between; align-items: center;">
+                        <span>Editable td</span>
+                        <span>highlight clicked td content</span>
+                        <span>highlight searched keyword</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <table class="table table-hover" id="editableTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name <i class="far fa-edit"></i></th>
+                                            <th>Age</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td contenteditable="true" class="editableTd">Alan</td>
+                                            <td>29</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td contenteditable="true" class="editableTd">Banana</td>
+                                            <td>30</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h6>Description:</h6>
+                                <ol class="list-group">
+                                    <li class="list-group-item">
+                                        1. To make a td editable, set <span style="color: orange;">contenteditable="true"</span> in a td.
+                                    </li>
+                                    <li class="list-group-item">
+                                        2. To select clicked content, apply <span style="color: orange;">"selectText()"</span> function.
+                                    </li>
+                                    <li class="list-group-item">
+                                        3. To make the table sort by first column(ID) initially, set<br>
+                                        var table = $('#editableTable').DataTable({<br>
+                                        "order": [[1, "desc"]]<br>
+                                        });<br>
+                                    </li>
+                                    <li class="list-group-item">
+                                        4. To highlight the searched keyword, import <span style="color: orange;">jquery.highlight.js</span> and set<br>
+                                        table.on('draw', function () {<br>
+                                        var body = $(table.table().body());<br>
+                                        body.unhighlight();<br>
+                                        body.highlight(table.search());<br>
+                                        });<br>
+                                        and CSS:<br>
+                                        table.dataTable span.highlight {<br>
+                                        background-color: rgb(255, 228, 74);<br>
+                                        border-radius: 0.28571429rem;<br>
+                                        }<br>
+                                        <br>
+                                        table.dataTable span.column_highlight {<br>
+                                        background-color: rgb(255, 228, 74);<br>
+                                        border-radius: 0.28571429rem;<br>
+                                        }<br>
+                                    </li>
+                                </ol>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -144,6 +238,8 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="./js/jquery.highlight.js"></script>
     <script>
         // brightness slider bar
         var slider = document.getElementById("myRange");
@@ -182,7 +278,53 @@
             $('.navbar').css('background-color', this.value);
             $('#colorpicker').val(this.value);
         });
-        
+
+        //Editable table column
+        // $(document).ready(function () {
+        //     $('#editableTable').DataTable();
+        // });
+
+        var table = $('#editableTable').DataTable({
+            // "order": [[1, "asc"]]
+            "order": [[1, "desc"]] //0, 1, 2...
+        });
+        table.on('draw', function () {
+            var body = $(table.table().body());
+            body.unhighlight();
+            body.highlight(table.search());
+        });
+
+        function selectText(node) {
+            // node = document.querySelector(`.${node}`);
+            // node = document.getElementById(`${node}`);
+            if (document.body.createTextRange) {
+                const range = document.body.createTextRange();
+                range.moveToElementText(node);
+                range.select();
+            } else if (window.getSelection) {
+                const selection = window.getSelection();
+                const range = document.createRange();
+                range.selectNodeContents(node);
+                selection.removeAllRanges();
+                selection.addRange(range);
+            } else {
+                console.warn("Could not select text in node: Unsupported browser.");
+            }
+        }
+        var clickCount = 0; //To prevent select event from triggering twice
+        var originalContent = '';
+        $('.editableTd').click(function (e) {
+            originalContent = this.innerText;
+            if (clickCount == 0) {
+                // selectText(e.target.id);
+                selectText(this);
+            }
+            clickCount += 1;
+        });
+        $('.editableTd').focusout(function (e) {
+            clickCount = 0;
+            alert("Do something when finishing edit");
+        });
     </script>
 </body>
 
