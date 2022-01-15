@@ -12,10 +12,26 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
     <title>Collection</title>
     <style>
-        nav {
-            margin-bottom: 1rem;
+        /* layout */
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
+        nav {
+            min-height: 5vh;
+        }
+
+        .content {
+            min-height: 90vh;
+        }
+
+        footer {
+            min-height: 5vh;
+        }
+
+        /* navbar */
         .navbar a:hover {
             color: orange !important;
         }
@@ -29,6 +45,7 @@
             margin-bottom: 1rem;
         }
 
+        /* table */
         table.dataTable span.highlight {
             background-color: rgb(255, 228, 74);
             border-radius: 0.28571429rem;
@@ -42,192 +59,233 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Collection</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="UIUXDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            UI/UX
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="UIUXDropdown">
-                            <li><a class="dropdown-item" href="./OXGame.html">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="frontendDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Front-end
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="frontendDropdown">
-                            <li><a class="dropdown-item aFrontend" href="#">Front-end</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="backendDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Back-end
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="backendDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="databaseDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Database
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="databaseDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Else</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+    <div class="wrapper">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/Collection/index.html">Collection</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="UIUXDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                UI/UX
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="UIUXDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="frontendDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Frontend
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="frontendDropdown">
+                                <li><a class="dropdown-item aFrontend" href="#">Frontend</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="backendDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Backend
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="backendDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="databaseDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Database
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="databaseDropdown">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="serviceDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Service
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="serviceDropdown">
+                                <li><a class="dropdown-item" href="#">Network</a></li>
+                                <li><a class="dropdown-item" href="#">DHCP</a></li>
+                                <li><a class="dropdown-item" href="#">NAT</a></li>
+                                <li><a class="dropdown-item" href="#">DNS</a></li>
+                                <li><a class="dropdown-item" href="#">PXE</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Firewall</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="elseDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Else
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="elseDropdown">
+                                <li><a class="dropdown-item" href="/OXGame.html">OX Game</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header">
-                        Customize Setting
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <div class="colorArea" style="display: flex; align-items: center; margin-bottom: 5%;">
-                                    <div>
-                                        <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header">
+                                Customize Setting
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="colorArea"
+                                            style="display: flex; align-items: center; margin-bottom: 5%;">
+                                            <div>
+                                                <input type="color" id="colorpicker" name="colorpicker" value="#FF0000">
+                                            </div>
+                                            <div id="red"
+                                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #A06254;">
+                                            </div>
+                                            <div id="green"
+                                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #43754D;">
+                                            </div>
+                                            <div id="blue"
+                                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #004777;">
+                                            </div>
+                                            <div id="black"
+                                                style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #393D3F;">
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="red"
-                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #A06254;">
-                                    </div>
-                                    <div id="green"
-                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #43754D;">
-                                    </div>
-                                    <div id="blue"
-                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #004777;">
-                                    </div>
-                                    <div id="black"
-                                        style="width: 20px; height: 20px; border-radius: 100%; border: 1px solid black; margin: 0 2px; background-color: #393D3F;">
+                                    <div class="col">
+                                        <div class="slidecontainer" style="display: flex; align-items: center;">
+                                            <i class="fas fa-sun" style="font-size: large;"></i>
+                                            <input type="range" min="15" max="100" value="100" class="slider"
+                                                id="myRange" style="width: 60%;">
+                                            <div id="demo"></div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col">
-                                <div class="slidecontainer" style="display: flex; align-items: center;">
-                                    <i class="fas fa-sun" style="font-size: large;"></i>
-                                    <input type="range" min="15" max="100" value="100" class="slider" id="myRange"
-                                        style="width: 60%;">
-                                    <div id="demo"></div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header"
+                                style="display: flex; justify-content: space-between; align-items: center;">
+                                <span>Editable td</span>
+                                <span>highlight clicked td content</span>
+                                <span>highlight searched keyword</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col">
+                                        <table class="table table-hover" id="editableTable">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name <i class="far fa-edit"></i></th>
+                                                    <th>Age</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td contenteditable="true" class="editableTd">Alan</td>
+                                                    <td>29</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td contenteditable="true" class="editableTd">Banana</td>
+                                                    <td>30</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header"
-                        style="display: flex; justify-content: space-between; align-items: center;">
-                        <span>Editable td</span>
-                        <span>highlight clicked td content</span>
-                        <span>highlight searched keyword</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <table class="table table-hover" id="editableTable">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Name <i class="far fa-edit"></i></th>
-                                            <th>Age</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td contenteditable="true" class="editableTd">Alan</td>
-                                            <td>29</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td contenteditable="true" class="editableTd">Banana</td>
-                                            <td>30</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <h6>Description:</h6>
-                                <ol class="list-group">
-                                    <li class="list-group-item">
-                                        1. To make a td editable, set <span style="color: orange;">contenteditable="true"</span> in a td.
-                                    </li>
-                                    <li class="list-group-item">
-                                        2. To select clicked content, apply <span style="color: orange;">"selectText()"</span> function.
-                                    </li>
-                                    <li class="list-group-item">
-                                        3. To make the table sort by first column(ID) initially, set<br>
-                                        var table = $('#editableTable').DataTable({<br>
-                                        "order": [[1, "desc"]]<br>
-                                        });<br>
-                                    </li>
-                                    <li class="list-group-item">
-                                        4. To highlight the searched keyword, import <span style="color: orange;">jquery.highlight.js</span> and set<br>
-                                        table.on('draw', function () {<br>
-                                        var body = $(table.table().body());<br>
-                                        body.unhighlight();<br>
-                                        body.highlight(table.search());<br>
-                                        });<br>
-                                        and CSS:<br>
-                                        table.dataTable span.highlight {<br>
-                                        background-color: rgb(255, 228, 74);<br>
-                                        border-radius: 0.28571429rem;<br>
-                                        }<br>
-                                        <br>
-                                        table.dataTable span.column_highlight {<br>
-                                        background-color: rgb(255, 228, 74);<br>
-                                        border-radius: 0.28571429rem;<br>
-                                        }<br>
-                                    </li>
-                                </ol>
+                                <div class="row">
+                                    <div class="col">
+                                        <h6>Description:</h6>
+                                        <ol class="list-group">
+                                            <li class="list-group-item">
+                                                1. To make a td editable, set <span
+                                                    style="color: orange;">contenteditable="true"</span> in a td.
+                                            </li>
+                                            <li class="list-group-item">
+                                                2. To select clicked content, apply <span
+                                                    style="color: orange;">"selectText()"</span> function.
+                                            </li>
+                                            <li class="list-group-item">
+                                                3. To make the table sort by first column(ID) initially, set<br>
+                                                var table = $('#editableTable').DataTable({<br>
+                                                "order": [[1, "desc"]]<br>
+                                                });<br>
+                                            </li>
+                                            <li class="list-group-item">
+                                                4. To highlight the searched keyword, import <span
+                                                    style="color: orange;">jquery.highlight.js</span> and set<br>
+                                                table.on('draw', function () {<br>
+                                                var body = $(table.table().body());<br>
+                                                body.unhighlight();<br>
+                                                body.highlight(table.search());<br>
+                                                });<br>
+                                                and CSS:<br>
+                                                table.dataTable span.highlight {<br>
+                                                background-color: rgb(255, 228, 74);<br>
+                                                border-radius: 0.28571429rem;<br>
+                                                }<br>
+                                                <br>
+                                                table.dataTable span.column_highlight {<br>
+                                                background-color: rgb(255, 228, 74);<br>
+                                                border-radius: 0.28571429rem;<br>
+                                                }<br>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <footer class="footer py-2 bg-light">
+            <div class="container">
+                <div class="copyright text-center my-auto">
+                    <span style="font-size: smaller;">Copyright &copy; Collection
+                        <script>document.write(new Date().getFullYear())</script>
+                    </span>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
